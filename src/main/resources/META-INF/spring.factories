@@ -1,0 +1,2 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+    com.t1.openschool.atumanov.log_http_boot_starter.init.LoggerEnvironmentPostProcessor
