@@ -30,12 +30,12 @@ public class LoggerAutoConfiguration {
     @Bean
     @ConditionalOnProperty(prefix = CONFIG_PREFIX, name = LOGGING_FORMAT, havingValue = FORMAT_FILE, matchIfMissing = false)
     public FileLogger fileWriter() {
-        try {
-            return new FileLogger(properties.getLoggingFile());
-        } catch (IOException e) {
-            System.out.println("Error trying to create FileLogger: " + e.getMessage());
-            throw new RuntimeException("Cannot create FileLogger");
-        }
+        //try {
+            return new FileLogger(properties.getLoggingFile(), properties.getRewriteLog());
+//        } catch (IOException e) {
+//            System.out.println("Error trying to create FileLogger: " + e.getMessage());
+//            throw new RuntimeException("Cannot create FileLogger");
+//        }
     }
 
 }

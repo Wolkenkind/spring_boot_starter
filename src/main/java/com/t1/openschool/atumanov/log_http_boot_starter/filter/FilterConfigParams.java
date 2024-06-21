@@ -5,6 +5,7 @@ public class FilterConfigParams {
     public static final String LOGGING_LEVEL = "loggingLevel";
     public static final String LOGGING_FORMAT = "loggingFormat";
     public static final String LOGGING_FILE = "loggingFile";
+    public static final String LOGGING_REWRITE = "rewriteLog";
 
     public static final String LEVEL_INFO = "INFO";
     public static final String LEVEL_DEBUG = "DEBUG";

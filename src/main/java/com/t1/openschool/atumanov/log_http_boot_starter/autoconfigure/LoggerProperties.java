@@ -11,11 +11,11 @@ import static com.t1.openschool.atumanov.log_http_boot_starter.filter.FilterConf
 @ConfigurationProperties(prefix = CONFIG_PREFIX)
 public class LoggerProperties {
     /**
-     * Level of logging for HttpLogger, possible values: INFO, DEBUG, TRACE
+     * Level of logging for HttpLogger, possible values: INFO, DEBUG, TRACE. Default (when missing): INFO
      */
     private String loggingLevel;
     /**
-     * Format of logging for HttpLogger, possible values: CONSOLE, FILE
+     * Format of logging for HttpLogger, possible values: CONSOLE, FILE. Default (when missing): CONSOLE
      */
     private String loggingFormat;
 
@@ -23,6 +23,11 @@ public class LoggerProperties {
      * Path to the log file to write in case when FILE format is used
      */
     private String loggingFile;
+
+    /**
+     * Rewrites the logfile if set to TRUE, appends to it if set to FALSE. Default (when missing): FALSE
+     */
+    private boolean rewriteLog = false;
 
     public String getLoggingLevel() {
         return loggingLevel;
@@ -46,5 +51,13 @@ public class LoggerProperties {
 
     public void setLoggingFile(String loggingFile) {
         this.loggingFile = loggingFile;
+    }
+
+    public boolean getRewriteLog() {
+        return rewriteLog;
+    }
+
+    public void setRewriteLog(boolean rewriteLog) {
+        this.rewriteLog = rewriteLog;
     }
 }
