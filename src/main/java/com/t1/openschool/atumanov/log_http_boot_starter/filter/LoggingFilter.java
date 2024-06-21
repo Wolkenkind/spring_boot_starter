@@ -1,5 +1,8 @@
 package com.t1.openschool.atumanov.log_http_boot_starter.filter;
 
+import com.t1.openschool.atumanov.log_http_boot_starter.filter.utility.CachedBodyHttpServletRequest;
+import com.t1.openschool.atumanov.log_http_boot_starter.filter.utility.LoggingResponseWrapper;
+import com.t1.openschool.atumanov.log_http_boot_starter.logger.LogProcessor;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +17,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.*;
 
-import static com.t1.openschool.atumanov.log_http_boot_starter.filter.FilterConfigParams.*;
+import static com.t1.openschool.atumanov.log_http_boot_starter.filter.utility.FilterConfigParams.*;
 
 
 public class LoggingFilter extends OncePerRequestFilter {
@@ -96,7 +99,6 @@ public class LoggingFilter extends OncePerRequestFilter {
                 }
             }
 
-            //List<String> headerNames = Collections.list(request.getHeaderNames());
             Set<String> headerSet = new HashSet<>(Collections.list(request.getHeaderNames()));
             for(String headerName : headerSet) {
                 String hValue = Collections.list(request.getHeaders(headerName)).stream().reduce((s1, s2) -> s1  + ", " + s2).orElse("");
@@ -108,20 +110,14 @@ public class LoggingFilter extends OncePerRequestFilter {
     }
 
     private void LogResponse(LoggingResponseWrapper wrappedResponse, String logLevel) {
-        String responseLogEntry = "Outgoing response with status code '" + wrappedResponse.getStatus() + "'";
+        String responseLogEntry = null;
 
         if(logLevel.equals(LEVEL_DEBUG) || logLevel.equals(LEVEL_TRACE)) {
-            responseLogEntry += "\nResponse body: '" + wrappedResponse.getContent() + "';";
+            responseLogEntry = "\nResponse body: '" + wrappedResponse.getContent() + "';";
         }
 
-        if(logLevel.equals(LEVEL_TRACE)) {
-            Set<String> headerSet = new HashSet<>(wrappedResponse.getHeaderNames());
-            for(String headerName : headerSet) {
-                String hValue = new ArrayList<>(wrappedResponse.getHeaders(headerName)).stream().reduce((s1, s2) -> s1  + ", " + s2).orElse("");
-                responseLogEntry += "\nHeader '" + headerName + "' value: '" + hValue + "';";
-            }
+        if(responseLogEntry != null) {
+            processor.processLog(responseLogEntry + "\n");
         }
-
-        processor.processLog(responseLogEntry + "\n");
     }
 }

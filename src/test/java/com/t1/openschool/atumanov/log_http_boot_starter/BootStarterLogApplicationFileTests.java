@@ -21,8 +21,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOutNormalized;
-import static com.t1.openschool.atumanov.log_http_boot_starter.filter.FilterConfigParams.*;
+import static com.t1.openschool.atumanov.log_http_boot_starter.filter.utility.FilterConfigParams.*;
 
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:test-file.properties")

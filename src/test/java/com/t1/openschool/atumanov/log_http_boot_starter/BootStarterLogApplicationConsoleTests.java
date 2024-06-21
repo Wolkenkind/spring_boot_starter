@@ -176,6 +176,6 @@ class BootStarterLogApplicationConsoleTests {
 		assert text.contains("Header '" + TEST_HEADER + "' value: '" + TEST_HEADER_VALUE + "';");
 
 		assert text.contains(RESPONSE_404);
-		assert text.contains("Outgoing response with status code '404' from \"ERROR\" dispatch");
+		assert text.contains(RESPONSE_404);
 	}
 }

@@ -1,4 +1,4 @@
-package com.t1.openschool.atumanov.log_http_boot_starter.filter;
+package com.t1.openschool.atumanov.log_http_boot_starter.logger;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,11 +1,8 @@
 package com.t1.openschool.atumanov.log_http_boot_starter.autoconfigure;
 
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
-import static com.t1.openschool.atumanov.log_http_boot_starter.filter.FilterConfigParams.CONFIG_PREFIX;
+import static com.t1.openschool.atumanov.log_http_boot_starter.filter.utility.FilterConfigParams.CONFIG_PREFIX;
 
 
 @ConfigurationProperties(prefix = CONFIG_PREFIX)

@@ -1,6 +1,6 @@
 package com.t1.openschool.atumanov.log_http_boot_starter.autoconfigure;
 
-import com.t1.openschool.atumanov.log_http_boot_starter.filter.LogProcessor;
+import com.t1.openschool.atumanov.log_http_boot_starter.logger.LogProcessor;
 import com.t1.openschool.atumanov.log_http_boot_starter.filter.LoggingFilter;
 import com.t1.openschool.atumanov.log_http_boot_starter.interceptor.LoggingInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Properties;
 
-import static com.t1.openschool.atumanov.log_http_boot_starter.filter.FilterConfigParams.*;
+import static com.t1.openschool.atumanov.log_http_boot_starter.filter.utility.FilterConfigParams.*;
 
 @AutoConfiguration
 public class FilterWebMvcAutoConfigurer implements WebMvcConfigurer {

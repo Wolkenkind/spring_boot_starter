@@ -1,4 +1,4 @@
-package com.t1.openschool.atumanov.log_http_boot_starter.filter;
+package com.t1.openschool.atumanov.log_http_boot_starter.filter.utility;
 
 import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
